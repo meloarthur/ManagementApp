@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [\App\Http\Controllers\PrincipalController::class,'principal']);
+Route::get('/home', [\App\Http\Controllers\HomeController::class,'home'])->name('site.index');
 
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobreNos']);
+Route::get('/about-us', [\App\Http\Controllers\AboutUsController::class,'aboutUs'])->name('site.aboutus');
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato']);
+Route::get('/contact', [\App\Http\Controllers\ContactController::class,'contact'])->name('site.contact');
 
-Route::get('/contato/{nome}/{idade?}', function(string $nome = 'Fulano', int $idade = -1){
-    echo "Estamos aqui: $nome, $idade";
-})->where('idade', '[0-9]+')->where('nome', '[A-Za-z]+');
+Route::get('/login', function () { return 'Login'; })->name('site.login');
+
+Route::prefix('app')->group(function () {
+    Route::get('/clients', function () { return 'Clients'; })->name('app.clients');
+    Route::get('/providers', function () { return 'Providers'; })->name('app.providers');
+    Route::get('/products', function () { return 'Products'; })->name('app.products');
+});
+
+Route::get('/test/{p1}/{p2}', [\App\Http\Controllers\TestController::class,'test'])->name('site.test');
+
+Route::fallback(function(){
+    return 'Page not found.<br><br><a href="'.route('site.index').'">Home</a>';
+});
