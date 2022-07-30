@@ -18,6 +18,9 @@ class ProviderController extends Controller
                 'status' => 'S'
             ]
         ];
+
+        echo isset($providers[$p]['cnpj']) ? 'CNPJ informado' :  'CNPJ não informado';
+
         return view('app.provider.index', compact('providers'), with(['p' => $p]));
     }
 }

@@ -25,9 +25,7 @@ Status: {{ $providers[$p]['status'] }}
     <br>
     Status : {{ $providers[$p]['status'] }}
     <br>
-    @isset($providers[$p]['cnpj'])
-        CNPJ : {{ $providers[$p]['cnpj'] }}
-    @endisset
+    CNPJ : {{ $providers[$p]['cnpj'] ?? 'Dado não preenchido' }}
 @endisset
 
 <br><br>
