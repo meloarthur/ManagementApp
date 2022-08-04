@@ -31,4 +31,4 @@ Route::get('/test/{p1}/{p2}', [\App\Http\Controllers\TestController::class,'test
 
 Route::fallback(function(){
     return 'Page not found.<br><br><a href="'.route('site.index').'">Home</a>';
-});
+}); 
