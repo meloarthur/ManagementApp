@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class,'home'])->name('site.index');
-
 Route::get('/about-us', [\App\Http\Controllers\AboutUsController::class,'aboutUs'])->name('site.aboutus');
-
 Route::get('/contact', [\App\Http\Controllers\ContactController::class,'contact'])->name('site.contact');
-
 Route::get('/login', function () { return 'Login'; })->name('site.login');
 
 Route::prefix('app')->group(function () {
@@ -27,8 +24,8 @@ Route::prefix('app')->group(function () {
     Route::get('/products', function () { return 'Products'; })->name('app.products');
 });
 
-Route::get('/test/{p1}/{p2}', [\App\Http\Controllers\TestController::class,'test'])->name('site.test');
-
 Route::fallback(function(){
     return 'Page not found.<br><br><a href="'.route('site.index').'">Home</a>';
-}); 
+});
+
+Route::get('/test/{p1}/{p2}', [\App\Http\Controllers\TestController::class,'test'])->name('site.test');
