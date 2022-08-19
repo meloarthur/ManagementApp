@@ -1,4 +1,4 @@
-<h3>Provider</h3>
+<h3>Providers</h3>
 {{--
 Fornecedor: {{ $providers[$p]['name'] }}
 <br>
