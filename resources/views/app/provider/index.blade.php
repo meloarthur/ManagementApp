@@ -1,22 +1,4 @@
 <h3>Providers</h3>
-{{--
-Fornecedor: {{ $providers[$p]['name'] }}
-<br>
-Status: {{ $providers[$p]['status'] }}
-
-<br><br>
-
-@if ($providers[$p]['status'] == 'N')
-    Provider unavailable
-@else
-    Provider available
-@endif
-
-<br><br>
-
-@unless ($providers[$p]['status'] == 'Y')
-    Provider unavailable
-@endunless --}}
 
 @isset($providers)
     @foreach($providers as $index=>$provider)
