@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class,'home'])->name('site.index');
-Route::get('/about-us', [\App\Http\Controllers\AboutUsController::class,'aboutUs'])->name('site.aboutus');
-Route::get('/contact', [\App\Http\Controllers\ContactController::class,'contact'])->name('site.contact');
-Route::get('/login', function () { return 'Login'; })->name('site.login');
+Route::get('/home', [\App\Http\Controllers\PrincipalController::class,'index'])->name('site.index');
+Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class,'sobreNos'])->name('site.sobrenos');
+Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 
 Route::prefix('app')->group(function () {
-    Route::get('/clients', function () { return 'Clients'; })->name('app.clients');
-    Route::get('/providers', [\App\Http\Controllers\ProviderController::class,'index'])->name('app.providers');
-    Route::get('/products', function () { return 'Products'; })->name('app.products');
+    Route::get('/clientes', function () { return 'Clientes.<br><br><a href="'.route('site.index').'">Home</a>'; })->name('app.cliente');
+    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class,'index'])->name('app.fornecedor');
+    Route::get('/produtos', function () { return 'Produtos.<br><br><a href="'.route('site.index').'">Home</a>'; })->name('app.produtos');
 });
 
 Route::fallback(function(){
