@@ -11,8 +11,13 @@
                 font-family: 'Roboto', sans-serif;
             }
 
-            p, span {
+            p {
                 color: #ffffff;
+            }
+
+            span {
+                font-size: 12px;
+                color: #000;
             }
 
             h1 {
@@ -201,10 +206,6 @@
     <body>
         <div class="topo">
 
-            <div class="logo">
-                <img src="img/logo.png">
-            </div>
-
             <div class="menu">
                 <ul>
                     <li><a href="{{ route('site.index') }}">Principal</a></li>
@@ -223,18 +224,10 @@
                 <div class="informacoes">
                     <h1>Sistema Super Gestão</h1>
                     <p>Software para gestão empresarial ideal para sua empresa.<p>
-                    <div class="chamada">
-                        <img src="/img/check.png">
-                        <span class="texto-branco">Gestão completa e descomplicada</span>
-                    </div>
-                    <div class="chamada">
-                        <img src="img/check.png">
-                        <span class="texto-branco">Sua empresa na nuvem</span>
-                    </div>
-                </div>
-
-                <div class="video">
-                    <img src="img/player_video.jpg">
+                    <ul class="chamada">
+                        <li class="texto-branco">Gestão completa e descomplicada</li>
+                        <li class="texto-branco">Sua empresa na nuvem</li>
+                    </ul>
                 </div>
             </div>
 
@@ -243,21 +236,22 @@
                     <h1>Contato</h1>
                     <p>Caso tenha qualquer dúvida por favor entre em contato com nossa equipe pelo formulário abaixo.<p>
                     <form>
-                        <input type="text" placeholder="Nome" class="borda-branca">
+                        <input type="text" placeholder="Nome *" class="borda-branca" required>
                         <br>
-                        <input type="text" placeholder="Telefone" class="borda-branca">
+                        <input type="text" placeholder="Telefone *" class="borda-branca" required>
                         <br>
-                        <input type="text" placeholder="E-mail" class="borda-branca">
+                        <input type="text" placeholder="E-mail *" class="borda-branca" required>
                         <br>
-                        <select class="borda-branca">
-                            <option value="">Qual o motivo do contato?</option>
+                        <select class="borda-branca" required>
+                            <option value="" selected>Qual o motivo do contato? *</option>
                             <option value="">Dúvida</option>
                             <option value="">Elogio</option>
                             <option value="">Reclamação</option>
                         </select>
                         <br>
-                        <textarea class="borda-branca">Preencha aqui a sua mensagem</textarea>
+                        <textarea class="borda-branca" placeholder="Preencha aqui a sua mensagem"></textarea>
                         <br>
+                        <span><strong>* Campos Obrigatórios</strong></span>
                         <button type="submit" class="borda-branca">ENVIAR</button>
                     </form>
                 </div>
