@@ -70,44 +70,10 @@
                 color: #333333;
             }
 
-            .topo {
-                width: 100%;
-                background-color: #f8f8f8;
-                position: absolute;
-                padding: 20px 0px 10px 0px;
-            }
-
             .logo {
                 width: 50px;
                 float: left;
                 margin-left: 40px;
-            }
-
-            .menu {
-                float: right;
-                margin-right: 40px;
-            }
-
-            .menu li {
-                display: inline;
-                float: left;
-            }
-
-            .menu ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-            }
-
-            .menu a {
-                text-decoration: none;
-                padding: 14px 16px;
-                color: #333;
-            }
-
-            .menu a:hover {
-                color: #268fd0;
             }
 
             .conteudo-destaque {
@@ -174,44 +140,12 @@
                 color: #333;
             }
 
-            .rodape {
-                width: 100%;
-            }
-
-            .redes-sociais, .area-contato, .localizacao {
-                width: 33.333%;
-                border-top:solid 1px #ccc;
-                float: left;
-                text-align: center;
-                background-color: #f8f8f8;
-                height: 250px;
-            }
-
-            .redes-sociais, .area-contato, .localizacao p, span {
-                color: #333333;
-            }
-
-            .redes-sociais img {
-                margin: 0px 15px 0px 15px;
-            }
-
         </style>
     </head>
 
     <body>
-        <div class="topo">
-
-            <div class="menu">
-                <ul>
-                    <li><a href="{{ route('site.index') }}">Principal</a></li>
-                    <li><a href="{{ route('app.fornecedor') }}">Fornecedores</a></li>
-                    <li><a href="{{ route('app.cliente') }}">Clientes</a></li>
-                    <li><a href="{{ route('app.produtos') }}">Produtos</a></li>
-                    <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
-                    <li><a href="{{ route('site.contato') }}">Contato</a></li>
-                </ul>
-            </div>
-        </div>
+        @component('layouts._components.header')
+        @endcomponent
 
         <div class="conteudo-pagina">
             <div class="titulo-pagina">
@@ -220,46 +154,15 @@
 
             <div class="informacao-pagina">
                 <div class="contato-principal">
-                    <form action="{{ route('site.contato') }}" method="post">
-                        @csrf
-                        <input name="nome" type="text" placeholder="Nome *" class="borda-preta" required>
-                        <br>
-                        <input name="telefone" type="text" placeholder="Telefone *" class="borda-preta" required>
-                        <br>
-                        <input name="email" type="text" placeholder="E-mail *" class="borda-preta" required>
-                        <br>
-                        <select class="borda-preta" required>
-                            <option value="" selected>Qual o motivo do contato? *</option>
-                            <option value="1">Dúvida</option>
-                            <option value="2">Elogio</option>
-                            <option value="3">Reclamação</option>
-                        </select>
-                        <br>
-                        <textarea class="borda-preta" name="mensagem" placeholder="Preencha aqui a sua mensagem"></textarea>
-                        <br>
-                        <button type="submit" class="borda-preta">ENVIAR</button>
-                    </form>
+                    @component('layouts._components.formContato')
+                    <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
+                    <p>Nosso tempo médio de resposta é de 48h.</p>
+                    @endcomponent
                 </div>
             </div>
         </div>
 
-        <div class="rodape">
-            <div class="redes-sociais">
-                <h2>Redes sociais</h2>
-                <img src="img/facebook.png">
-                <img src="img/linkedin.png">
-                <img src="img/youtube.png">
-            </div>
-            <div class="area-contato">
-                <h2>Contato</h2>
-                <span>(11) 3333-4444</span>
-                <br>
-                <span>supergestao@dominio.com.br</span>
-            </div>
-            <div class="localizacao">
-                <h2>Localização</h2>
-                <img src="img/mapa.png">
-            </div>
-        </div>
+        @component('layouts._components.footer')
+        @endcomponent
     </body>
 </html>
